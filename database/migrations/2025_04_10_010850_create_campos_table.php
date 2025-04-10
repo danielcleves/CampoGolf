@@ -12,9 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('campos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); //(PK)
+            $table->string('nombre'); 
+            $table->string('ubicacion'); 
+            $table->integer('numero_hoyos'); 
+            $table->enum('tipo', ['público', 'privado']); 
+            $table->decimal('tarifa', 8, 2); 
+        
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
+        
     }
 
     /**
