@@ -4,7 +4,7 @@
 <div class="container mx-auto py-8 px-4">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold">Lista de campos</h1>
-        <a href="{{ route('campos.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition">+ Nuevo campo</a>
+        <a href="{{ route('campos.create') }}" class="bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-4 rounded-md transition">+ Nuevo campo</a>
     </div>
 
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
@@ -35,7 +35,7 @@
                         <td>
                             <div class="flex gap-2">
                                 <a href="{{ route('campos.edit', ['campo' => $campo->id]) }}"
-                                    class="bg-blue-600 text-white text-sm px-3 py-1 rounded-md transition">
+                                    class="bg-blue-700 hover:bg-blue-800 text-white text-sm px-3 py-1 rounded-md transition">
                                     Editar
                                 </a>
                                 <form action="{{ route('campos.destroy', ['campo' => $campo->id]) }}"
@@ -43,7 +43,7 @@
                                     @method('delete')
                                     @csrf
                                     <button type="submit"
-                                        class="bg-red-600 text-white text-sm px-3 py-1 rounded-md transition">
+                                        class="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1 rounded-md transition">
                                         Eliminar
                                     </button>
                                 </form>
