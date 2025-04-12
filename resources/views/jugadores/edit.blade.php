@@ -46,14 +46,15 @@
             </div>
 
             <div class="flex justify-between">
-                <a href="{{ route('jugadores.index') }}" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
-                    Cancelar
-                </a>
-
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                     Actualizar
                 </button>
+
+                <a href="{{ route('jugadores.index') }}" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+                    Cancelar
+                </a>
             </div>
+
         </form>
     </div>
 </div>
