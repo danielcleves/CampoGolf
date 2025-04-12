@@ -20,6 +20,7 @@
                         <th class="px-4 py-2">Dirección</th>
                         <th class="px-4 py-2">Handicap</th>
                         <th class="px-4 py-2">Registrado</th>
+                        <th class="px-4 py-2 text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
@@ -32,7 +33,24 @@
                             <td class="px-4 py-2">{{ $jugador->email }}</td>
                             <td class="px-4 py-2">{{ $jugador->direccion }}</td>
                             <td class="px-4 py-2">{{ $jugador->handicap }}</td>
-                            <td class="px-4 py-2">{{ $jugador->created_at->format('Y-m-d') }}</td>
+                            <td class="px-4 py-2">{{ \Carbon\Carbon::parse($jugador->created_at)->format('Y-m-d') }}</td>
+                            <td class="px-4 py-2 text-center">
+                                <div class="flex justify-center gap-2">
+                                    <!-- Botón para Editar -->
+                                    <a href="{{ route('jugadores.edit', ['jugador' => $jugador->id]) }}" class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600" title="Editar">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </a>
+                                    
+                                    <!-- Botón para Eliminar -->
+                                    <form action="{{ route('jugadores.destroy', ['jugador' => $jugador->id]) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este jugador?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-700" title="Eliminar">
+                                            <i class="bi bi-trash"></i> Eliminar
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
