@@ -76,6 +76,8 @@ class CampoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $campo = Campo::find($id);
+        $campo->delete();
+        return redirect()->route('campos.index')->with('success', 'Campo eliminado exitosamente.');
     }
 }
