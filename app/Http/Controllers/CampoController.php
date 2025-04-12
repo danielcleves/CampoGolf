@@ -29,7 +29,14 @@ class CampoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campo = new Campo();
+        $campo->nombre = $request->nombre;
+        $campo->ubicacion = $request->ubicacion;
+        $campo->numero_hoyos = $request->numero_hoyos;
+        $campo->tipo = $request->tipo;
+        $campo->tarifa = $request->tarifa;
+        $campo->save();
+        return redirect()->route('campos.index')->with('success', 'Campo creado exitosamente.');
     }
 
     /**
@@ -45,7 +52,8 @@ class CampoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $campo = Campo::find($id);
+        return view('campos.edit', compact('campo'));
     }
 
     /**
@@ -53,7 +61,14 @@ class CampoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $campo = Campo::find($id);
+        $campo->nombre = $request->nombre;
+        $campo->ubicacion = $request->ubicacion;
+        $campo->numero_hoyos = $request->numero_hoyos;
+        $campo->tipo = $request->tipo;
+        $campo->tarifa = $request->tarifa;
+        $campo->save();
+        return redirect()->route('campos.index')->with('success', 'Campo actualizado exitosamente.');
     }
 
     /**
