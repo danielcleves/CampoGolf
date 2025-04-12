@@ -21,7 +21,7 @@ class CampoController extends Controller
      */
     public function create()
     {
-        
+        return view('campos.new');
     }
 
     /**
