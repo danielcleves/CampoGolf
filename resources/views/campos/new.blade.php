@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto py-8 px-4">
-    <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-semibold">Crear campo</h1>
-    </div>
+<div class="container mx-auto py-8 px-4 max-w-3xl">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Agregar Campo</h2>
 
-    <div class="bg-white shadow-md rounded-lg flex justify-center p-4 max-w-xl mx-auto">
+    <div class="bg-white shadow-md rounded-lg p-6">
         <form method="POST" action="{{ route('campos.store') }}" class="w-full">
             @csrf
 
@@ -27,7 +25,7 @@
 
             <div class="mb-4">
                 <label for="tipo" class="block text-sm font-medium text-gray-700 mb-1">Tipo de campo</label>
-                <select id="tipo" name="tipo" class="block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2">
+                <select id="tipo" name="tipo" required class="block w-full border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2">
                     <option selected disabled value="">Seleccione una opción...</option>
                     <option value="público">Público</option>
                     <option value="privado">Privado</option>
@@ -58,6 +56,5 @@
             </div>
         </form>
     </div>
-
 </div>
 @endsection
