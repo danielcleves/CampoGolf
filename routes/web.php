@@ -4,6 +4,7 @@ use App\Http\Controllers\CampoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\JugadorController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReservasController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,5 +36,12 @@ Route::middleware('auth')->group(function () {
     // Route::get('/campos/{campo}/edit', [CampoController::class, 'edit'])->name('campos.edit');
     Route::resource('campos', CampoController::class);
 });
+Route::get('/reservas', [ReservasController::class, 'index'])->name('reservas.index');
+Route::post('/reservas', [ReservasController::class, 'store'])->name('reservas.store');
+Route::get('/reservas/create', [ReservasController::class, 'create'])->name('reservas.create');
+Route::delete('/reservas/{reserva}', [ReservasController::class, 'destroy'])->name('reservas.destroy');
+Route::put('/reservas/{reserva}', [ReservasController::class, 'update'])->name('reservas.update');
+Route::get('/reservas/{reserva}/edit', [ReservasController::class, 'edit'])->name('reservas.edit');
+
 
 require __DIR__ . '/auth.php';
