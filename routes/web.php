@@ -27,12 +27,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/jugadores/{jugador}/edit', [JugadorController::class, 'edit'])->name('jugadores.edit');
 
     //Rutas para campos
-    Route::get('/campos', [CampoController::class, 'index'])->name('campos.index');
-    Route::post('/campos', [CampoController::class, 'store'])->name('campos.store');
-    Route::get('/campos/create', [CampoController::class, 'create'])->name('campos.create');
-    Route::delete('/campos/{campo}', [CampoController::class, 'destroy'])->name('campos.destroy');
-    Route::put('/campos/{campo}', [CampoController::class, 'update'])->name('campos.update');
-    Route::get('/campos/{campo}/edit', [CampoController::class, 'edit'])->name('campos.edit');
+    // Route::get('/campos', [CampoController::class, 'index'])->name('campos.index');
+    // Route::post('/campos', [CampoController::class, 'store'])->name('campos.store');
+    // Route::get('/campos/create', [CampoController::class, 'create'])->name('campos.create');
+    // Route::delete('/campos/{campo}', [CampoController::class, 'destroy'])->name('campos.destroy');
+    // Route::put('/campos/{campo}', [CampoController::class, 'update'])->name('campos.update');
+    // Route::get('/campos/{campo}/edit', [CampoController::class, 'edit'])->name('campos.edit');
+    Route::resource('campos', CampoController::class);
 });
 
 require __DIR__ . '/auth.php';
